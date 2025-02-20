@@ -39,6 +39,17 @@ public class WhiteUrlController {
         }
 
     }
+    @PostMapping("deleteWhiteUrls")
+    private ResponseEntity<ResultDto<String>> deleteWhiteUrl(Authentication authentication, @RequestBody String whiteUrl){
+        try{
+            MemberDetail memberDetail = (MemberDetail) authentication.getPrincipal();
+            whiteUrlService.deleteWhiteUrl(whiteUrl, memberDetail.getMember());
+            return ResponseEntity.ok().body(ResultDto.res(HttpStatus.ACCEPTED, "정보가 삭되었습니다!"));
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(ResultDto.res(HttpStatus.BAD_REQUEST,"오류가 발생했어요"));
+        }
+
+    }
 
 
 

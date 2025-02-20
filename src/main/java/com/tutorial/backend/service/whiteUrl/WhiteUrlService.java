@@ -8,4 +8,6 @@ import java.util.List;
 public interface WhiteUrlService {
     List<WhiteUrl> getWhiteUrls(Long id);
     WhiteUrl putNewWhiteUrl(String newUrl, Member member);
+
+    WhiteUrl deleteWhiteUrl(String whiteUrl, Member member);
 }

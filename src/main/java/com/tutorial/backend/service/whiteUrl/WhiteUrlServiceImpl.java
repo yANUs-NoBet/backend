@@ -30,4 +30,13 @@ public class WhiteUrlServiceImpl implements WhiteUrlService{
 
         return whiteUrlRepository.save(whiteUrl);
     }
+
+    @Override
+    public WhiteUrl deleteWhiteUrl(String whiteUrl, Member member) {
+        WhiteUrl whiteUrlEntity = WhiteUrl.builder()
+                .whiteUrl(whiteUrl)
+                .member(member).build();
+        whiteUrlRepository.delete(whiteUrlEntity);
+        return whiteUrlEntity;
+    }
 }
