@@ -1,2 +1,4 @@
 src/resources/application-oauth.yml
 src/resources/application-api.yml
+build/libs/*.jar
+build/libs/*.jar
