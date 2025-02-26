@@ -4,6 +4,7 @@ import com.tutorial.backend.config.WebClientConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Import;
@@ -19,6 +20,7 @@ import java.util.TimeZone;
 @EnableAspectJAutoProxy
 @EnableJpaRepositories(basePackages = "com.tutorial.backend.repository")
 @EntityScan("com.tutorial.backend.entity")
+@EnableFeignClients(basePackages = "com.tutorial.backend.api")
 @Import(WebClientConfig.class)
 public class BackendApplication {
 

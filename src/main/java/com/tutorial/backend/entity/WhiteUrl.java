@@ -1,8 +1,10 @@
 package com.tutorial.backend.entity;
 
 import lombok.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -21,13 +23,18 @@ public class WhiteUrl {
 
     @ManyToOne
     @JoinColumn(name = "member_id", nullable = false)
+    @JsonIgnore
     private Member member;
+
+    @Column(name = "upload_date", nullable = false, updatable = false)
+    private LocalDateTime uploadDate; // ✅ 차단된 날짜 필드 추가
 
 
     @Builder
-    public WhiteUrl(Long id, String whiteUrl, Member member) {
+    public WhiteUrl(Long id, String whiteUrl, Member member, LocalDateTime uploadDate) {
         this.id = id;
         this.whiteUrl = whiteUrl;
         this.member = member;
+        this.uploadDate = uploadDate;
     }
 }

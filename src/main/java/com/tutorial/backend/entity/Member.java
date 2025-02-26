@@ -1,5 +1,6 @@
 package com.tutorial.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.tutorial.backend.entity.type.Authority;
 import com.tutorial.backend.entity.type.StatusType;
 import lombok.*;
@@ -36,11 +37,13 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BlackUrl> blackUrls = new ArrayList<>();
 
-    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<WhiteUrl> whiteUrls = new ArrayList<>();
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<BlackUrl> blackUrls;  // 🚨 문제 발생 가능
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<WhiteUrl> whiteUrls;  // 🔥 지연 로딩
+
 
     public Member update(String memberName, String memberEmail, String profileImageUrl){
         this.setMemberName(memberName);

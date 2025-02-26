@@ -26,6 +26,8 @@ public class QWhiteUrl extends EntityPathBase<WhiteUrl> {
 
     public final QMember member;
 
+    public final DateTimePath<java.time.LocalDateTime> uploadDate = createDateTime("uploadDate", java.time.LocalDateTime.class);
+
     public final StringPath whiteUrl = createString("whiteUrl");
 
     public QWhiteUrl(String variable) {

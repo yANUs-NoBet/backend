@@ -26,11 +26,11 @@ public class SecurityConfig {
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     private static final String AUTH_PATH = "/auth/**";
-    private static final String OAUTH_PATH = "/oauth/**";
+    private static final String OAUTH_PATH = "/oauth2/**";
     private static final String MEMBER_PATH = "/member/**";
     private static final String ADMIN_PATH = "/admin/**";
     private static final String WHITE_URL_PATH = "/whiteUrls/**";
-    private static final String BLACK_URL_PATH = "/whiteUrls/**";
+    private static final String BLACK_URL_PATH = "/blackUrls/**";
 
     private final OAuthService oAuthService;
     private final MemberDetailService memberDetailService;
@@ -67,7 +67,6 @@ public class SecurityConfig {
                 // 로그인, 회원가입 API는 토큰 없이 접근 가능하도록 permitAll 설정
                 .and()
                 .authorizeRequests()
-                .antMatchers(AUTH_PATH).permitAll()
                 .antMatchers(OAUTH_PATH).permitAll()
                 .antMatchers(WHITE_URL_PATH).permitAll()
                 .antMatchers(BLACK_URL_PATH).permitAll()
