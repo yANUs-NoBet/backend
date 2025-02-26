@@ -26,11 +26,11 @@ public class SecurityConfig {
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     private static final String AUTH_PATH = "/auth/**";
-    private static final String OAUTH_PATH = "/oauth/**";
+    private static final String OAUTH_PATH = "/oauth2/**";
     private static final String MEMBER_PATH = "/member/**";
     private static final String ADMIN_PATH = "/admin/**";
     private static final String WHITE_URL_PATH = "/whiteUrls/**";
-    private static final String BLACK_URL_PATH = "/whiteUrls/**";
+    private static final String BLACK_URL_PATH = "/blackUrls/**";
 
     private final OAuthService oAuthService;
     private final MemberDetailService memberDetailService;
