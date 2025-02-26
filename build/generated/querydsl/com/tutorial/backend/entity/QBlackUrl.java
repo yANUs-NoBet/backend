@@ -24,6 +24,8 @@ public class QBlackUrl extends EntityPathBase<BlackUrl> {
 
     public final StringPath blackUrl = createString("blackUrl");
 
+    public final DateTimePath<java.time.LocalDateTime> blockedAt = createDateTime("blockedAt", java.time.LocalDateTime.class);
+
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final QMember member;

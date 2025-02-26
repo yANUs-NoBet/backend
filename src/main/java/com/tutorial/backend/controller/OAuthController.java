@@ -16,36 +16,33 @@ import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/oauth/*")
+@RequestMapping("/oauth2/*")
 @Slf4j
 public class OAuthController {
 
 
     private final AuthServiceImpl authServiceImpl;
 
-    private static final String REDIRECT_URI = "http://localhost:5173/oauth";
+    private static final String REDIRECT_URI = "chrome-extension://aifenekmnojhkbgjbkbpoinlmclppkii/index.html#/oauth";
 
     @GetMapping("loginInfo")
     public void onAuthenticationSuccess(HttpServletResponse response,
                                         @RequestParam String email,
-                                        @RequestParam String name,
-                                        @RequestParam String profile) throws IOException {
+                                        @RequestParam String name) throws IOException {
+        log.info("들어옴");
         // 토큰 발행
         TokenDto tokenDto = authServiceImpl.socialLogin(email, name);
         String accessToken = tokenDto.getAccessToken();
         String refreshToken = tokenDto.getRefreshToken();
         Long accessTokenExpiresIn = tokenDto.getAccessTokenExpiresIn();
 
+        log.info("들어옴");
 
-        // 토큰 정보를 포함하여 리다이렉트
-        String redirectUrl = UriComponentsBuilder.fromUriString(REDIRECT_URI)
-                .queryParam("accessToken", accessToken)
-                .queryParam("refreshToken", refreshToken)
-                .queryParam("accessTokenExpiresIn", accessTokenExpiresIn)
-                .build()
-                .encode(StandardCharsets.UTF_8)
-                .toUriString();
+        // ✅ UriComponentsBuilder 대신 직접 URL 조합
+        String redirectUrl = String.format("%s?accessToken=%s&refreshToken=%s&accessTokenExpiresIn=%d",
+                REDIRECT_URI, accessToken, refreshToken, accessTokenExpiresIn);
 
         response.sendRedirect(redirectUrl);
     }
+
 }

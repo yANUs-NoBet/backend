@@ -18,7 +18,7 @@ import java.util.Map;
 @Component
 public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    private static final String REDIRECT_URI = "/oauth/loginInfo";
+    private static final String REDIRECT_URI = "/oauth2/loginInfo";
 
 
     @Override
@@ -33,18 +33,18 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
             Map<String, Object> attributes = oAuth2User.getAttributes();
             Map<String, Object> kakaoAccount = (Map<String, Object>) attributes.get("kakao_account");
             Map<String, Object> profile = (Map<String, Object>) kakaoAccount.get("profile");
-            String profileImageUrl = (String) profile.get("profile_image_url");
 
             System.out.println("SuccessHandler oAuth2User: " + oAuth2User);
             String redirectUrl = UriComponentsBuilder.fromUriString(REDIRECT_URI)
                     .queryParam("email", email)
                     .queryParam("name",name)
-                    .queryParam("profile",profileImageUrl)
                     .build()
                     .encode(StandardCharsets.UTF_8)
                     .toUriString();
 
+            log.info(redirectUrl);
             response.sendRedirect(redirectUrl);
+
         } else {
             throw new IllegalStateException("Authentication principal is not an instance of OAuth2User");
         }
