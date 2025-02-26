@@ -59,7 +59,12 @@ dependencies {
 
 //	외부 api용
 	implementation ("org.springframework.boot:spring-boot-starter-webflux")
+
+//	OpenAI API용
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 }
+
+
 
 dependencyManagement {
 	imports {

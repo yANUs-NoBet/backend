@@ -1,4 +1,4 @@
-src/resources/application-oauth.yml
-src/resources/application-api.yml
+src/main/resources/application-oauth.yml
+src/main/resources/application-api.yml
 build/libs/*.jar
 build/libs/*.jar

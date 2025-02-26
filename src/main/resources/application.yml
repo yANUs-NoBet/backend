@@ -54,10 +54,13 @@ spring:
 
   profiles:
     include: oauth
+  config:
+    import: application-api.yml
+
 
 jwt:
   secret: c3ByaW5nLWJvb3Qtc2VjdXJpdHktand0LXR1dG9yaWFsLWppd29vbi1zcHJpbmctYm9vdC1zZWN1cml0eS1qd3QtdHV0b3JpYWwK
 
 # 본인의 프로젝트/files로 경로를 수정해야함
 file:
-  upload-dir: /Users/rickyhong/Desktop/Projects/EmotionTalk/files
+  upload-dir: /Users/rickyhong/Desktop/Projects/NoBet/files

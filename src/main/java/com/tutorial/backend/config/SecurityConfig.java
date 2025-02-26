@@ -67,7 +67,6 @@ public class SecurityConfig {
                 // 로그인, 회원가입 API는 토큰 없이 접근 가능하도록 permitAll 설정
                 .and()
                 .authorizeRequests()
-                .antMatchers(AUTH_PATH).permitAll()
                 .antMatchers(OAUTH_PATH).permitAll()
                 .antMatchers(WHITE_URL_PATH).permitAll()
                 .antMatchers(BLACK_URL_PATH).permitAll()
