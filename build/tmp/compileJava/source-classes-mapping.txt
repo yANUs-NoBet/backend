@@ -18,8 +18,8 @@ com/tutorial/backend/repository/member/MemberRepository.java
  com.tutorial.backend.repository.member.MemberRepository
 com/tutorial/backend/util/SecurityUtil.java
  com.tutorial.backend.util.SecurityUtil
-com/tutorial/backend/controller/BlackUrlController.java
- com.tutorial.backend.controller.BlackUrlController
+com/tutorial/backend/controller/AuthController.java
+ com.tutorial.backend.controller.AuthController
 com/tutorial/backend/handler/MyAuthenticationSuccessHandler.java
  com.tutorial.backend.handler.MyAuthenticationSuccessHandler
 com/tutorial/backend/config/WebMvcConfig.java
@@ -39,8 +39,8 @@ com/tutorial/backend/entity/type/Authority.java
  com.tutorial.backend.entity.type.Authority
 com/tutorial/backend/config/QueryDSLConfig.java
  com.tutorial.backend.config.QueryDSLConfig
-com/tutorial/backend/service/whiteUrl/WhiteUrlServiceImpl.java
- com.tutorial.backend.service.whiteUrl.WhiteUrlServiceImpl
+com/tutorial/backend/controller/BlackUrlController.java
+ com.tutorial.backend.controller.BlackUrlController
 com/tutorial/backend/service/MemberDetailService.java
  com.tutorial.backend.service.MemberDetailService
 com/tutorial/backend/repository/refreshToken/RefreshTokenRepository.java
@@ -54,8 +54,8 @@ com/tutorial/backend/config/SecurityConfig.java
 com/tutorial/backend/entity/RefreshToken.java
  com.tutorial.backend.entity.RefreshToken
  com.tutorial.backend.entity.RefreshToken$RefreshTokenBuilder
-com/tutorial/backend/controller/WhiteUrlController.java
- com.tutorial.backend.controller.WhiteUrlController
+com/tutorial/backend/service/auth/AuthServiceImpl.java
+ com.tutorial.backend.service.auth.AuthServiceImpl
 com/tutorial/backend/controller/dto/MemberDto.java
  com.tutorial.backend.controller.dto.MemberDto
 com/tutorial/backend/repository/blackUrl/BlackUrlRepository.java
@@ -83,8 +83,8 @@ com/tutorial/backend/service/oauth/OAuthService.java
  com.tutorial.backend.service.oauth.OAuthService
 com/tutorial/backend/config/WebConfig.java
  com.tutorial.backend.config.WebConfig
-com/tutorial/backend/service/whiteUrl/WhiteUrlService.java
- com.tutorial.backend.service.whiteUrl.WhiteUrlService
+com/tutorial/backend/service/auth/AuthService.java
+ com.tutorial.backend.service.auth.AuthService
 com/tutorial/backend/service/blackUrl/BlackUrlServiceImpl.java
  com.tutorial.backend.service.blackUrl.BlackUrlServiceImpl
 com/tutorial/backend/jwt/JwtAuthenticationEntryPoint.java
@@ -109,11 +109,11 @@ com/tutorial/backend/entity/WhiteUrl.java
  com.tutorial.backend.entity.WhiteUrl$WhiteUrlBuilder
 com/tutorial/backend/service/member/MemberService.java
  com.tutorial.backend.service.member.MemberService
-com/tutorial/backend/controller/AuthController.java
- com.tutorial.backend.controller.AuthController
-com/tutorial/backend/service/auth/AuthService.java
- com.tutorial.backend.service.auth.AuthService
-com/tutorial/backend/service/auth/AuthServiceImpl.java
- com.tutorial.backend.service.auth.AuthServiceImpl
+com/tutorial/backend/service/whiteUrl/WhiteUrlServiceImpl.java
+ com.tutorial.backend.service.whiteUrl.WhiteUrlServiceImpl
+com/tutorial/backend/controller/WhiteUrlController.java
+ com.tutorial.backend.controller.WhiteUrlController
+com/tutorial/backend/service/whiteUrl/WhiteUrlService.java
+ com.tutorial.backend.service.whiteUrl.WhiteUrlService
 com/tutorial/backend/controller/OAuthController.java
  com.tutorial.backend.controller.OAuthController
